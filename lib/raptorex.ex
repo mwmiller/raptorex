@@ -19,7 +19,18 @@ defmodule Raptorex do
     end
   end
 
+  def partition(i, j) do
+    ratio = i / j
+    il = intceil(ratio)
+    is = intfloor(ratio)
+    jl = i - is * j
+    js = j - jl
+
+    {il, is, jl, js}
+  end
+
   defp intceil(x), do: x |> Float.ceil() |> trunc
+  defp intfloor(x), do: x |> trunc
   defp choose(n, k), do: div(fac(n), fac(k) * fac(n - k))
 
   defp fac(1), do: 1
