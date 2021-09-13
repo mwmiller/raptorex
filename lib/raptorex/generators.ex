@@ -6,7 +6,7 @@ defmodule Raptorex.Generators do
   @q 65521
 
   def rand(x, i, m),
-    do: rem(V0.value(rem(x + i, 256)) ^^^ V1.value(rem(trunc(x / 256) + i, 256)), m)
+    do: rem(Bitwise.bxor(V0.value(rem(x + i, 256)), V1.value(rem(trunc(x / 256) + i, 256))), m)
 
   def degree(n) when n < 10241, do: 1
   def degree(n) when n < 491_582, do: 2
