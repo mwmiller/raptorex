@@ -1,5 +1,4 @@
 defmodule Raptorex.Generators do
-  use Bitwise
   alias Raptorex.Lookup.{J, Primes, V0, V1}
 
   # the largest prime smaller than 2^^16.
